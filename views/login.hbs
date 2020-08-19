@@ -12,7 +12,7 @@
             <input class="input-field" type='password' name="password" placeholder="your password" required/><br><br>
             <span></span>
             <input type="submit" class="submit-btn" value="Submit" />
-            {{!-- <p> if you don't have account <a href="/signup">sign up</a></p> --}}
+            {{error}}
         </form>
 
           <form id="register" class="input-group" action="/signup" method="POST">
@@ -29,11 +29,12 @@
         
         </div>
         </div>
-      <script src="/index.js">
+      <script src="/index.js"></script>
       
       
       
-      </script>
+      
+     
       <script>
 if ("{{page}}" === "signup") {
   register();

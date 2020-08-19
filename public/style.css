@@ -82,3 +82,9 @@
 #register {
   left: 450px;
 }
+.user {
+  background-color: red;
+}
+p {
+  color: red;
+}
