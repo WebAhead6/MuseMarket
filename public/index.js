@@ -13,3 +13,6 @@ function login() {
   register1.style.left = "450px";
   btn.style.left = "0";
 }
+if (window.history.replaceState) {
+  window.history.replaceState(null, null, window.location.href);
+}

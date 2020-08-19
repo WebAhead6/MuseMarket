@@ -11,6 +11,7 @@ CREATE TABLE users (
 CREATE TABLE users_posts (
   id SERIAL PRIMARY KEY,
   user_id INTEGER REFERENCES users(id),
+  
 instrument_type VARCHAR(255),
   description TEXT,
   price Decimal,
