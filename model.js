@@ -9,11 +9,11 @@ function getAllPosts() {
 function createNewUser(data) {
   return new Promise((resolve, reject) => {
     const values = [data.name, data.password, data["confirm password"]];
-    console.log(values);
+
     if (values[1] !== values[2]) {
-      console.log("aaa");
       return reject(new Error("not the same password"));
     }
+
     getUser(data.name).then((userData) => {
       if (userData) return reject(new Error("user name exist"));
 
@@ -29,9 +29,34 @@ function getUser(userName) {
     db.query("select * from users where user_name=$1", [userName])
       .then((result) => {
         if (result.rows.length !== 0) resolve(result.rows[0]);
+        else {
+          resolve(null);
+        }
       })
       .catch(reject);
   });
 }
 
-module.exports = { createNewUser, getUser, getAllPosts };
+function login(data) {
+  return new Promise((resolve, reject) => {
+    const values = [data.name, data.password];
+    db.query("select * from users where user_name=$1 and password=$2", values)
+      .then((result) => {
+        console.log(result.rows[0].user_name);
+        if (
+          result.rows[0].user_name !== values[0] ||
+          result.rows[0].password !== values[1]
+        ) {
+          return reject(
+            new Error(
+              "The name or passowrd is incorrect ,or maybe you don't have an account please sign up"
+            )
+          );
+        }
+        return resolve(data);
+      })
+      .catch(reject);
+  });
+}
+
+module.exports = { createNewUser, getUser, getAllPosts, login };
