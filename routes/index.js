@@ -13,9 +13,6 @@ router.post("/login", (req, res) => {
   res.redirect("/user");
 });
 
-router.get("/signup", (req, res) => {
-  res.render("signup");
-});
 router.post("/signup", (req, res) => {
   console.log(req.body);
   model
@@ -24,7 +21,7 @@ router.post("/signup", (req, res) => {
       res.redirect("/login");
     })
     .catch((e) => {
-      res.render("signup", { error: e.message });
+      res.render("login", { error: e.message, page: "signup" });
     });
 });
 
