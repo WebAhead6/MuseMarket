@@ -1,5 +1,11 @@
 const db = require("./database/connection");
 
+function getAllPosts() {
+  return db.query("SELECT * FROM users_posts").then((results) => {
+    return results.rows;
+  });
+}
+
 function createNewUser(data) {
   return new Promise((resolve, reject) => {
     const values = [data.name, data.password, data["confirm password"]];
@@ -28,4 +34,4 @@ function getUser(userName) {
   });
 }
 
-module.exports = { createNewUser, getUser };
+module.exports = { createNewUser, getUser, getAllPosts };

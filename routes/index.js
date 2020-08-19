@@ -7,6 +7,18 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
+router.get("/user/:username", (req, res) => {
+  const username = req.params.username;
+  model.getAllPosts().then((data) => {
+    const postsdata = data;
+    res.render("user", {
+      user_name: username,
+      title: "MuseMarket",
+      posts: postsdata,
+    });
+  });
+});
+// routes.post("/login", (req, res) => {});
 router.post("/login", (req, res) => {
   req.body.name, req.body.password;
 

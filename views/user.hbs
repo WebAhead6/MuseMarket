@@ -1,0 +1,23 @@
+ {{!-- {{> header }} --}}
+
+
+<header>
+  <h1 class="">{{title}}</h1>
+  <p>Hello {{user_name}}!</p>
+</header>
+
+
+  <form action="/addPost" method="POST">
+            <input type="text" name="instrument type" placeholder="your instrumet" />
+            <input type='text' name="description" placeholder="describe your instrument" />
+            <input type="text" name="contact info" placeholder="add number" />
+            <input type="number" name="price" placeholder="add price" />
+            <input type="text" value="Submit" />
+        </form>
+
+<ul id="list" class="list">
+  {{#each posts}} 
+  <li class="user">{{this.instrument_type}} <br> {{this.description}}<br> {{this.contact_info}}<br>{{this.price}}
+    </li>
+  {{/each}}
+</ul>
