@@ -1,5 +1,6 @@
  {{!-- {{> header }} --}}
 
+<div class="hero">
 
 <header>
   <h1 class="">{{title}}</h1>
@@ -19,7 +20,18 @@
 
 <ul id="list" class="list">
   {{#each posts}} 
-  <li class="user">{{this.instrument_type}} <br> {{this.description}}<br> {{this.contact_info}}<br>{{this.price}}
+  <li class="user">
+    <span>
+    {{this.instrument_type}} 
+    </span>
+    <span>{{this.description}}</span>
+
+    <span> {{this.contact_info}}</span>
+    <span>{{this.price}}</span>
+    <img class="likeIcon" onclick="func({{this.id}},{{user_id}})" src="/image/icon.jpg" alt="like" width="30" height="30"/>
+</img>
     </li>
   {{/each}}
 </ul>
+      </div>
+  <script src="/index.js"></script>

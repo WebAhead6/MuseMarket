@@ -21,12 +21,13 @@ router.post("/login", (req, res) => {
 });
 router.get("/user/:username", (req, res) => {
   const username = req.params.username;
+  console.log(username);
   model.getAllPosts().then((data) => {
     const postsdata = data;
-    model.getUser(username).then((user) => {
+    model.getUser(username).then((result) => {
       res.render("user", {
-        user_name: user.user_name,
-        user_id: user.id,
+        user_name: username,
+        user_id: result.id,
         title: "MuseMarket",
         posts: postsdata,
       });
@@ -44,6 +45,17 @@ router.post("/signup", (req, res) => {
       res.render("login", { error_register: e.message, page: "signup" });
     });
 });
+router.post("/postId", (req, res) => {
+  console.log("ana", req.body);
+  model
+    .createNewLike(req.body)
+    .then(() => {
+      res.send("succes");
+    })
+    .catch((error) => {
+      console.log("error");
+    });
+});
 
 router.post("/addPost", (req, res) => {
   model
@@ -53,4 +65,5 @@ router.post("/addPost", (req, res) => {
       res.redirect("back");
     });
 });
+
 module.exports = router;
