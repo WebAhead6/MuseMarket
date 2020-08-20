@@ -5,6 +5,14 @@ function getAllPosts() {
     return results.rows;
   });
 }
+function createNewLike(data) {
+  const values = [data.user_id, data.post_id];
+  console.log("hoon", values);
+  return db.query(
+    `INSERT INTO like_posts(user_id, post_id) VALUES($1,$2)`,
+    values
+  );
+}
 
 function createNewUser(data) {
   return new Promise((resolve, reject) => {
@@ -28,13 +36,30 @@ function getUser(userName) {
   return new Promise((resolve, reject) => {
     db.query("select * from users where user_name=$1", [userName])
       .then((result) => {
-        if (result.rows.length !== 0) resolve(result.rows[0]);
-        else {
+        if (result.rows.length !== 0) {
+          resolve(result.rows[0]);
+          console.log(result.rows[0]);
+        } else {
           resolve(null);
         }
       })
       .catch(reject);
   });
+}
+
+function getUserPage(userName) {
+  console.log(username);
+  return db
+    .query(
+      `
+  SELECT user_name
+  FROM users
+  WHERE user_name = $1
+  `,
+      [username]
+    )
+
+    .then((results) => results.rows);
 }
 
 function login(data) {
@@ -59,4 +84,11 @@ function login(data) {
   });
 }
 
-module.exports = { createNewUser, getUser, getAllPosts, login };
+module.exports = {
+  createNewLike,
+  createNewUser,
+  getUser,
+  getAllPosts,
+  login,
+  getUserPage,
+};

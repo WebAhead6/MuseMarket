@@ -83,7 +83,10 @@
   left: 450px;
 }
 .user {
-  background-color: red;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
 }
 p {
   color: red;
