@@ -24,7 +24,7 @@ function createNewUser(data) {
     const values = [data.name, data.password, data["confirm password"]];
 
     if (values[1] !== values[2]) {
-      return reject(new Error("not the same password"));
+      return reject(new Error("password doesn't match"));
     }
 
     getUser(data.name).then((userData) => {

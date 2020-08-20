@@ -4,6 +4,14 @@
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
+
+h1 {
+  font-size: 50px;
+  font-family: monospace;
+  color: #42d2ed;
+  text-shadow: 1px 1px;
+  padding: 20px;
+}
 .hero {
   height: 100%;
   width: 100%;
