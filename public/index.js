@@ -30,4 +30,6 @@ function func(post_id, user_id) {
     // });
   });
   console.log("end of file");
+if (window.history.replaceState) {
+  window.history.replaceState(null, null, window.location.href);
 }

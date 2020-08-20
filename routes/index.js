@@ -42,7 +42,7 @@ router.post("/signup", (req, res) => {
       res.redirect("/login");
     })
     .catch((e) => {
-      res.render("login", { error: e.message, page: "signup" });
+      res.render("login", { error_register: e.message, page: "signup" });
     });
 });
 router.post("/postId", (req, res) => {
@@ -56,4 +56,14 @@ router.post("/postId", (req, res) => {
       console.log("error");
     });
 });
+
+router.post("/addPost", (req, res) => {
+  model
+    .addNewPost(req.body)
+
+    .then(() => {
+      res.redirect("back");
+    });
+});
+
 module.exports = router;
