@@ -7,18 +7,19 @@
 .hero {
   height: 100%;
   width: 100%;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.137)),
-    url("/image/photo-1511379938547-c1f69419868d.jpeg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.322)),
+    url("/image/pexels-photo-668295.jpeg");
+
   background-position: center;
   background-size: cover;
   position: absolute;
 }
 .form-box {
-  width: 380px;
-  height: 480px;
+  width: 420px;
+  height: 550px;
   position: relative;
   margin: 6% auto;
-  background: #d5cfb9;
+  background: #fce7f1;
   padding: 5px;
   overflow: hidden;
   border-radius: 30px;
@@ -45,7 +46,7 @@
   position: absolute;
   width: 110px;
   height: 100%;
-  background: linear-gradient(to right, #89d9c3, #289fa9);
+  background: linear-gradient(to right, #42d2ed, #f4e449);
   border-radius: 30px;
   transition: 0.5s;
 }
@@ -72,7 +73,7 @@
   cursor: pointer;
   display: block;
   margin: auto;
-  background: linear-gradient(to right, #89d9c3, #289fa9);
+  background: linear-gradient(to right, #42d2ed, #f4e449);
   border: 0;
   outline: none;
   border-radius: 30px;
