@@ -4,7 +4,7 @@
 
 <header>
   <h1>{{title}}</h1>
-  <p>Hello {{user_name}}!<span><a href="/likedPosts/{{user_id}}" style="padding: 30px;">My Likes</a></span></p>
+  <p>Hello {{user_name}}!</p>
 </header>
 
 
@@ -19,7 +19,7 @@
         </form>
 
 <ul id="list" class="list">
-  {{#each posts}} 
+  {{#each likedposts}} 
   <li class="user">
     <span>
     {{this.instrument_type}} 
@@ -28,8 +28,6 @@
 
     <span> {{this.contact_info}}</span>
     <span>{{this.price}}</span>
-    <img class="likeIcon" onclick="func({{this.id}},{{user_id}})" src="/image/icon.jpg" alt="like" width="30" height="30"/>
-</img>
     </li>
   {{/each}}
 </ul>
