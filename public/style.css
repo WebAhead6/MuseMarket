@@ -4,6 +4,18 @@
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
+.user-name {
+  color: #42d2ed;
+  font-family: monospace;
+  font-size: 20px;
+}
+h1 {
+  font-size: 50px;
+  font-family: monospace;
+  color: #42d2ed;
+  text-shadow: 1px 1px;
+  padding: 20px;
+}
 .hero {
   height: 100%;
   width: 100%;
@@ -85,13 +97,15 @@
   left: 450px;
 }
 .user {
-  background-color: white;
+  background: #fce7f1;
   display: flex;
   justify-content: space-between;
   padding: 20px;
 }
-p {
-  color: red;
+.user span {
+  max-width: 150px;
+  min-width: 150px;
+  font-family: monospace;
 }
 .user-icon {
   margin: 30px;
@@ -104,4 +118,23 @@ p {
   box-shadow: 0 0 20px 0 #7f7f7f3d;
   cursor: pointer;
   border-radius: 50%;
+}
+
+.form {
+  width: 450px;
+  height: 150px;
+  /* position: relative; */
+  margin: 0 auto;
+  background: linear-gradient(to right, #42d2ed, #f4e449);
+  background: #fce7f1;
+  padding: 20px;
+
+  border-radius: 15px;
+}
+.list {
+  margin: 90px;
+  background: linear-gradient(to right, #42d2ed, #f4e449);
+  padding: 5px;
+
+  border-radius: 15px;
 }
