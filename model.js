@@ -114,8 +114,17 @@ function addNewPost(data) {
     values
   );
 }
-
+function getLikes(user_id) {
+  return db
+    .query(
+      `select * from users_posts inner join
+  like_posts ON like_posts.post_id = users_posts.id where like_posts.user_id = $1 `,
+      [user_id]
+    )
+    .then((results) => results.rows);
+}
 module.exports = {
+  getLikes,
   createNewLike,
   createNewUser,
   getUser,
