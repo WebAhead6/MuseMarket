@@ -5,14 +5,17 @@
       <button type="button" class="toggle-btn" onclick="login()">Log In</button>
       <button type="button" class="toggle-btn" onclick="register()">Register</button>
       </div>
+    <div class='user-icon'>
+      <img src="/image/download.png">
+    </div><br><br>
   <form id="login" class="input-group" action="/login" method="POST">
     <label for="name">Name</label>
             <input class="input-field" type="text" name="name" placeholder="your name" required/><br>
             <label for="name">Password</label>
             <input class="input-field" type='password' name="password" placeholder="your password" required/><br><br>
             <span></span>
-            <input type="submit" class="submit-btn" value="Submit" />
-            {{error}}
+            <input type="submit" class="submit-btn" value="Submit" /><br><br>
+            <div id='log'>{{error}}</div>
         </form>
 
           <form id="register" class="input-group" action="/signup" method="POST">
@@ -22,9 +25,9 @@
             <input  class="input-field" type='password' name="password" placeholder="your password"  required/><br>
             <label for="Confirm password">Confirm password</label>
             <input   class="input-field" type='password' name="confirm password" placeholder="confirm password"  required/><br><br>
-            <input type="submit" class="submit-btn" value="join us" /><br>
-            {{message}}
-            {{error}}
+            <input type="submit" class="submit-btn" value="join us" /><br><br>
+          
+            {{error_register}}
         </form> 
         
         </div>
