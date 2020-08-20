@@ -4,21 +4,21 @@
 
 <header>
   <h1 class="">{{title}}</h1>
-  <p>Hello {{user_name}}!</p>
+  <p class="user-name">Hello {{user_name}}!</p>
 </header>
 
-
-  <form action="/addPost" method="POST">
-            <input type="text" name="instrument type" placeholder="your instrumet" />
-            <input type='text' name="description" placeholder="describe your instrument" />
-            <input type="text" name="contact info" placeholder="add number" />
-            <input type="number" name="price" placeholder="add price" />
-            <input type="hidden" name="user_id" value="{{user_id}}">
-            <input type="text" name="urlImage" placeholder="add image" />
-            <input type="submit" />
+ <div class='form'>
+  <form action="/addPost"  method="POST">
+            <input class="input-field" type="text" name="instrument type" placeholder="your instrumet" />
+            <input class="input-field" type='text' name="description" placeholder="describe your instrument" />
+            <input class="input-field" type="text" name="contact info" placeholder="add number" />
+            <input class="input-field" type="number" name="price" placeholder="add price" />
+            <input class="input-field" type="hidden" name="user_id" value="{{user_id}}">
+           
+            <input class="submit-btn" value="add" type="submit" />
         </form>
-
-<ul id="list" class="list">
+</div>
+<ul  id="list" class="list">
   {{#each posts}} 
   <li class="user">
     <span>

@@ -80,11 +80,8 @@ function login(data) {
     const values = [data.name, data.password];
     db.query("select * from users where user_name=$1 and password=$2", values)
       .then((result) => {
-        console.log(result.rows[0].user_name);
-        if (
-          result.rows[0].user_name !== values[0] ||
-          result.rows[0].password !== values[1]
-        ) {
+        console.log(result.rows);
+        if (result.rows.length === 0) {
           return reject(
             new Error(
               "The name or passowrd is incorrect ,or maybe you don't have an account please sign up"
@@ -110,11 +107,10 @@ function addNewPost(data) {
     data.description,
     data.price,
     data["contact info"],
-    data.urlImage,
   ];
   console.log(values);
   return db.query(
-    `INSERT INTO  users_posts( user_id,instrument_type, description ,price,contact_info, imgUrl) VALUES($1,$2,$3,$4,$5,$6)`,
+    `INSERT INTO  users_posts( user_id,instrument_type, description ,price,contact_info) VALUES($1,$2,$3,$4,$5)`,
     values
   );
 }

@@ -22,14 +22,9 @@ function func(post_id, user_id) {
       "content-type": "application/json",
     },
     body: JSON.stringify({ post_id, user_id }),
-    // .then(function (response) {
-    //   return response.json();
-    // })
-    // .then(function (data) {
-    //   console.log("here", data);
-    // });
   });
-  console.log("end of file");
+}
+console.log("end of file");
 if (window.history.replaceState) {
   window.history.replaceState(null, null, window.location.href);
 }
