@@ -2,7 +2,7 @@ const express = require("express");
 const exphbs = require("express-handlebars");
 const path = require("path");
 
-const routes = require("./routes/index");
+const controllers = require("./controllers");
 // const helpers = require("./views/helpers/index");
 const app = express();
 
@@ -26,6 +26,6 @@ app.engine(
 );
 
 app.set("port", process.env.PORT || 3000);
-app.use(routes);
+app.use(controllers);
 
 module.exports = app;
