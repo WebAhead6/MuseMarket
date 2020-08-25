@@ -25,15 +25,15 @@ function createNewLike(data) {
     values
   );
 }
-function createNewUser(data) {
+function createNewUser(username, password) {
   return new Promise((resolve, reject) => {
-    const values = [data.name, data.password, data["confirm password"]];
-    if (values[1] !== values[2]) {
-      return reject(new Error("not the same password"));
-    }
-    getUser(data.name).then((userData) => {
+    getUser(username).then((userData) => {
       if (userData) return reject(new Error("user name exist"));
-      db.query(`INSERT INTO users(user_name, password) VALUES($1,$2)`, values)
+
+      db.query(`INSERT INTO users(user_name, password) VALUES($1,$2)`, [
+        username,
+        password,
+      ])
         .then(resolve)
         .catch(reject);
     });
