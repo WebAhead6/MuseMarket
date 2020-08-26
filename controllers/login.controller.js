@@ -33,16 +33,13 @@ const login = async (req, res) => {
 const user = async (req, res) => {
   try {
     const username = req.params.username;
-    console.log("sa7a", username);
     const userdata = await model.getUser(username);
-    console.log("llll", userdata);
     const userId = userdata.id;
     const allPosts = await model.getAllPostsWithLike(userId);
     res.render("user", {
       user_name: username,
       user_id: userId,
       posts: allPosts,
-
     });
   } catch (err) {
     res.render("user", { error: err.message });

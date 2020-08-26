@@ -13,8 +13,8 @@ router.post(["/register", "/signup"], registerController.register);
 router.get("/", middlewares.requireLogout, loginController.home);
 router.post("/", middlewares.requireLogout, loginController.login);
 router.get("/user/:username", middlewares.requireLogin, loginController.user);
-router.post("/addPost", middlewares.requireLogout, PostController.addPost);
-router.post("/addLike", middlewares.requireLogout, PostController.addLike);
+router.post("/addPost", middlewares.requireLogin, PostController.addPost);
+router.post("/addLike", middlewares.requireLogin, PostController.addLike);
 router.get(
   "/likedPosts/:userId",
   middlewares.requireLogin,

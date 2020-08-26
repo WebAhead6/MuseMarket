@@ -24,7 +24,7 @@
 
     <span> {{this.contact_info}}</span>
     <span>{{this.price}}</span>
-    <img src={{#if this.isliked}}"/image/heart1.svg"{{else}}"/image/heart.svg"{{/if}}   onclick="func({{this.id}},{{../user_id}})"></img>
+    <img src={{#if this.isliked}}"/image/heart1.svg"{{else}}"/image/heart.svg"{{/if}}  class="likeIcon" onclick="func({{this.id}},{{../user_id}})"></img>
 
     </li>
   {{/each}}
