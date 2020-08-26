@@ -2,6 +2,7 @@
 <header>
   <h1>MuseMarket</h1>
 </header>
+<div class="form-flex">
   <div class="form-box">
     <div class="button-box">
       <div id="btn"></div>
@@ -25,16 +26,23 @@
     <label for="name">Name</label>
             <input  class="input-field" type="text" name="name" placeholder="your name" required /><br>
             <label for="password">Password</label>
-            <input  class="input-field" type='password' name="password" placeholder="your password"  required/><br>
+            <input  id="psw" class="input-field" type='password' name="password" placeholder="your password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required/><br>
             <label for="confirmPassword">Confirm password</label>
-            <input   class="input-field" type='password' name="confirmPassword" placeholder="confirm password"  required/><br><br>
+            <input  class="input-field" type='password' name="confirmPassword" placeholder="confirm password"  required/><br><br>
             <input type="submit" class="submit-btn" value="join us" /><br><br>
           
           
             {{error_register}}
         </form> 
-        
+
         </div>
+                <div id="message">
+  <h3>Password must contain the following:</h3>
+  <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+  <p id="number" class="invalid">A <b>number</b></p>
+  <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+</div>
+</div>
         </div>
       <script src="/index.js"></script>
       

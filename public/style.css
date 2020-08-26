@@ -1,3 +1,8 @@
+body {
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+}
 * {
   margin: 0;
   padding: 0;
@@ -30,6 +35,13 @@ h1 {
   text-shadow: 1px 1px;
   padding: 20px;
 }
+.name {
+  font-size: 20px;
+  font-family: monospace;
+  color: #42d2ed;
+  text-shadow: 1px 1px;
+  padding: 20px;
+}
 .hero {
   /* height: 100%; */
   width: 100%;
@@ -46,13 +58,17 @@ h1 {
   width: 420px;
   height: 550px;
   position: relative;
-  margin: 6% auto;
+  /* margin: 6% auto; */
   background: #fce7f1;
   padding: 5px;
   overflow: hidden;
   border-radius: 30px;
 }
-
+.form-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
 .button-box {
   width: 220px;
   margin: 35px auto;
@@ -107,11 +123,55 @@ h1 {
   border-radius: 30px;
 }
 #login {
-  left: 50px;
+  left: l50px;
 }
 #register {
   left: 450px;
 }
+
+/* The message box is shown when the user clicks on the password field */
+#message {
+  display: none;
+  background: #f1f1f1;
+  color: #000;
+  /* position: relative; */
+  padding: 20px;
+  margin-top: 10px;
+  width: fit-content;
+  height: fit-content;
+  background: #fce7f1;
+  border-radius: 30px;
+  font-family: monospace;
+}
+
+#message p {
+  padding: 10px 35px;
+  font-size: 18px;
+  font-family: monospace;
+}
+
+/* Add a green text color and a checkmark when the requirements are right */
+.valid {
+  color: green;
+}
+
+.valid:before {
+  position: relative;
+  left: -35px;
+  content: "✔";
+}
+
+/* Add a red text color and an "x" when the requirements are wrong */
+.invalid {
+  color: red;
+}
+
+.invalid:before {
+  position: relative;
+  left: -35px;
+  content: "✖";
+}
+
 .user {
   background: #fce7f1;
   display: flex;
