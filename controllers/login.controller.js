@@ -27,20 +27,23 @@ const login = async (req, res) => {
   }
 };
 
-const user = (req, res) => {
-  const username = req.params.username;
-  console.log(username);
-  model.getAllPosts().then((data) => {
-    const postsdata = data;
-    model.getUser(username).then((result) => {
-      res.render("user", {
-        user_name: username,
-        user_id: result.id,
-        title: "MuseMarket",
-        posts: postsdata,
-      });
+const user = async (req, res) => {
+  try {
+    const username = req.params.username;
+    console.log("sa7a", username);
+    const userdata = await model.getUser(username);
+    console.log("llll", userdata);
+    const userId = userdata.id;
+    const allPosts = await model.getAllPostsWithLike(userId);
+    res.render("user", {
+      user_name: username,
+      user_id: userId,
+      title: "MuseMarket",
+      posts: allPosts,
     });
-  });
+  } catch (err) {
+    res.render("user", { error: err.message });
+  }
 };
 
 module.exports = { login, user, home };

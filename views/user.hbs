@@ -1,7 +1,6 @@
  {{!-- {{> header }} --}}
 
 <div class="hero">
-
 <header>
 
   <h1>{{title}}</h1>
@@ -30,10 +29,11 @@
 
     <span> {{this.contact_info}}</span>
     <span>{{this.price}}</span>
-    <img class="likeIcon" onclick="func({{this.id}},{{user_id}})" src="/image/icon.jpg" alt="like" width="30" height="30"/>
-</img>
+    <img src={{#if this.isliked}}"/image/heart1.svg"{{else}}"/image/heart.svg"{{/if}}   onclick="func({{this.id}},{{../user_id}})"></img>
+
     </li>
   {{/each}}
 </ul>
+{{error}}
       </div>
   <script src="/index.js"></script>
