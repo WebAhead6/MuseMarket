@@ -12,24 +12,23 @@ const register = (req, res) => {
   const saltRounds = 10;
   const myPlaintextPassword = req.body.password;
 
-  bcrypt.hash(myPlaintextPassword, saltRounds, function (err, hash) {
+  bcrypt.hash(myPlaintextPassword, saltRounds, async (err, hash) => {
     if (err)
       return res.render("login", {
         page: "signup",
         error_register: err.message,
       });
     console.log("aaaa", req.body.name, hash);
-    model
-      .createNewUser(req.body.name, hash)
-      .then(() => {
-        res.redirect("/");
-      })
-      .catch((e) => {
-        res.render("login", {
-          error_register: e.message,
-          page: "signup",
-        });
+    try {
+      await model.createNewUser(req.body.name, hash);
+
+      res.redirect("/");
+    } catch (e) {
+      res.render("login", {
+        error_register: e.message,
+        page: "signup",
       });
+    }
   });
 };
 
