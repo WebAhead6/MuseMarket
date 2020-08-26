@@ -1,5 +1,36 @@
 <header>
-   <h1>MuseMarket</h1>
-  <p>Hello {{username}}!<span><a href="/likedPosts/{{id}}" style="padding: 30px;">My Likes</a></span></p>
-  <span><a href="/logout">Logout</a></span>
+
+  <div>
+    <h1>MuseMarket</h1>
+    <p class="name">Hello {{username}}!
+  </div>
+
+  <nav>
+    <a href="/likedPosts/{{id}}" >My Likes</a>
+    <a href="/logout">Logout</a>
+   </nav>
 </header>
+
+<style>
+  header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  nav {
+    margin-right: 20px;
+    margin-top: 20px;
+  }
+
+  nav a {
+    text-decoration: none;
+    font-size: 25px;
+    background-color: #fce7f1;
+    color: #42d2ed;
+    cursor: pointer;
+    font-family: monospace;
+    font-weight: bold;
+    padding: 5px 15px;
+    border-radius: 30px;
+  }
+</style>
