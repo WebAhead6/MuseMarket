@@ -14,7 +14,10 @@ const login = async (req, res) => {
     if (!passwordsEqual) throw new Error("Password is incorrect");
     console.log(process.env.JWT_SECRET);
     console.log("aaa", user);
-    const token = await jwt.sign(user.user_name, process.env.JWT_SECRET);
+    const token = await jwt.sign(
+      { user: user.user_name, id: user.id },
+      process.env.JWT_SECRET
+    );
 
     res.cookie("access_token", token);
     res.redirect("/user/" + req.body.name);
