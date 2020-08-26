@@ -3,7 +3,6 @@ const jwt = require("jsonwebtoken");
 
 const model = require("../model");
 const register = (req, res) => {
-  console.log(req.body);
   if (req.body.password !== req.body.confirmPassword)
     return res.render("login", {
       error_register: "passwords don't match",
@@ -18,7 +17,7 @@ const register = (req, res) => {
         page: "signup",
         error_register: err.message,
       });
-    console.log("aaaa", req.body.name, hash);
+
     try {
       await model.createNewUser(req.body.name, hash);
 

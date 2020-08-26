@@ -14,7 +14,10 @@ const login = async (req, res) => {
     if (!passwordsEqual) throw new Error("Password is incorrect");
     console.log(process.env.JWT_SECRET);
     console.log("aaa", user);
-    const token = await jwt.sign(user.user_name, process.env.JWT_SECRET);
+    const token = await jwt.sign(
+      { user: user.user_name, id: user.id },
+      process.env.JWT_SECRET
+    );
 
     res.cookie("access_token", token);
     res.redirect("/user/" + req.body.name);
@@ -28,7 +31,7 @@ const login = async (req, res) => {
 };
 
 const user = (req, res) => {
-  const username = req.params.username;
+  const username = res.locals.username;
   console.log(username);
   model.getAllPosts().then((data) => {
     const postsdata = data;
@@ -36,7 +39,6 @@ const user = (req, res) => {
       res.render("user", {
         user_name: username,
         user_id: result.id,
-        title: "MuseMarket",
         posts: postsdata,
       });
     });
