@@ -9,6 +9,7 @@ const addPost = (req, res) => {
 };
 
 const addLike = (req, res) => {
+  console.log(req.body);
   model
     .createNewLike(req.body)
     .then(() => {
