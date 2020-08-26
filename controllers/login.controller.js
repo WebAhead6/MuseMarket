@@ -41,8 +41,8 @@ const user = async (req, res) => {
     res.render("user", {
       user_name: username,
       user_id: userId,
-      title: "MuseMarket",
       posts: allPosts,
+
     });
   } catch (err) {
     res.render("user", { error: err.message });
