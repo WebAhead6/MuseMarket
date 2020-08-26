@@ -1,14 +1,8 @@
- {{!-- {{> header }} --}}
 
 <div class="hero">
 
-<header>
-
-  <h1>{{title}}</h1>
-  <p>Hello {{user_name}}!<span><a href="/likedPosts/{{user_id}}" style="padding: 30px;">My Likes</a></span></p>
-
-</header>
-
+ {{> header }}
+ 
  <div class='form'>
   <form action="/addPost"  method="POST">
             <input class="input-field" type="text" name="instrument type" placeholder="your instrumet" />

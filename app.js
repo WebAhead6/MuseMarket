@@ -1,11 +1,12 @@
 const express = require("express");
 const exphbs = require("express-handlebars");
 const path = require("path");
+const cookieParser = require("cookie-parser");
 
 const controllers = require("./controllers");
 // const helpers = require("./views/helpers/index");
 const app = express();
-
+app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
 
