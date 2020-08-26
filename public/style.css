@@ -66,6 +66,7 @@ h1 {
 }
 .form-flex {
   display: flex;
+
   align-items: center;
   justify-content: space-evenly;
 }
@@ -123,7 +124,7 @@ h1 {
   border-radius: 30px;
 }
 #login {
-  left: l50px;
+  left: 50px;
 }
 #register {
   left: 450px;
@@ -213,4 +214,9 @@ h1 {
   padding: 5px;
 
   border-radius: 15px;
+}
+@media only screen and (max-width: 600px) {
+  .form-flex {
+    flex-direction: column;
+  }
 }

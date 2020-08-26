@@ -7,7 +7,6 @@ var capital = document.querySelector("#capital");
 var number = document.querySelector("#number");
 var length = document.querySelector("#length");
 
-
 function register() {
   login1.style.left = "-400px";
   register1.style.left = "50px";
@@ -19,8 +18,6 @@ function login() {
   register1.style.left = "450px";
   btn.style.left = "0";
 }
-
-login1.style.left = "50px";
 
 function func(post_id, user_id) {
   console.log("mmm", post_id);
