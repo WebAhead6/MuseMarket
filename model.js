@@ -1,5 +1,6 @@
 const db = require("./database/connection");
 const fs = require("fs");
+const { Console } = require("console");
 
 function login(username) {
   return new Promise((resolve, reject) => {
@@ -73,6 +74,19 @@ function getAllPosts() {
     return results.rows;
   });
 }
+async function getAllPostsWithLike(userId) {
+  const allPosts = await getAllPosts();
+  const userLikes = await getLikes(userId);
+  console.log("id", userId);
+  return allPosts.map((post) => {
+    post.isliked = userLikes.some((likeData) => {
+      console.log("nnn", likeData.post_id, post.id);
+      return likeData.post_id === post.id;
+    });
+    return post;
+  });
+}
+
 function addNewPost(data) {
   const values = [
     data.user_id,
@@ -105,4 +119,5 @@ module.exports = {
   login,
   getUserPage,
   addNewPost,
+  getAllPostsWithLike,
 };

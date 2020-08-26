@@ -7,6 +7,7 @@ var capital = document.querySelector("#capital");
 var number = document.querySelector("#number");
 var length = document.querySelector("#length");
 
+
 function register() {
   login1.style.left = "-400px";
   register1.style.left = "50px";
@@ -22,18 +23,23 @@ function login() {
 login1.style.left = "50px";
 
 function func(post_id, user_id) {
-  console.log(post_id);
-  fetch("/postId", {
+  console.log("mmm", post_id);
+  ////  for (i = 0; i < icon.length; i++) {
+  // console.log("mmmm", icon[i].getAttribute("data-value"));
+  // if (icon[i].getAttribute("data-value") == post_id)
+
+  fetch("/addLike", {
     method: "POST",
     headers: {
       "content-type": "application/json",
     },
     body: JSON.stringify({ post_id, user_id }),
-  });
-}
-console.log("end of file");
-if (window.history.replaceState) {
-  window.history.replaceState(null, null, window.location.href);
+  }).then(() => window.location.reload(true));
+
+  console.log("end of file");
+  if (window.history.replaceState) {
+    window.history.replaceState(null, null, window.location.href);
+  }
 }
 
 // When the user clicks on the password field, show the message box
