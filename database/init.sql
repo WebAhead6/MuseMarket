@@ -4,7 +4,7 @@ DROP TABLE IF EXISTS users, users_posts, like_posts CASCADE;
 
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
-  user_name VARCHAR(255) NOT NULL,
+  user_name VARCHAR(255) NOT NULL UNIQUE,
   password VARCHAR(250)
   );
 

@@ -12,8 +12,6 @@ const login = async (req, res) => {
     const user = await model.login(name);
     const passwordsEqual = await bcrypt.compare(password, user.password);
     if (!passwordsEqual) throw new Error("Password is incorrect");
-    console.log(process.env.JWT_SECRET);
-    console.log("aaa", user);
     const token = await jwt.sign(
       { user: user.user_name, id: user.id },
       process.env.JWT_SECRET
