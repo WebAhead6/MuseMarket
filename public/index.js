@@ -20,11 +20,6 @@ function login() {
 }
 
 function func(post_id, user_id) {
-  console.log("mmm", post_id);
-  ////  for (i = 0; i < icon.length; i++) {
-  // console.log("mmmm", icon[i].getAttribute("data-value"));
-  // if (icon[i].getAttribute("data-value") == post_id)
-
   fetch("/addLike", {
     method: "POST",
     headers: {

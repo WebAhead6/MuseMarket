@@ -9,7 +9,6 @@ const addPost = (req, res) => {
 };
 
 const addLike = (req, res) => {
-  console.log("here111", req.body);
   model
     .createNewLike(req.body)
     .then(() => {
@@ -21,7 +20,6 @@ const addLike = (req, res) => {
 };
 const getLikes = (req, res) => {
   const userId = req.params.userId;
-  console.log(userId);
   model.getLikes(userId).then((postdata) => {
     res.render("like", {
       //user_name:
