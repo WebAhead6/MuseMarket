@@ -31,7 +31,7 @@ function createNewLike(data) {
 function createNewUser(username, password) {
   return new Promise((resolve, reject) => {
     getUser(username).then((userData) => {
-      if (userData) return reject(new Error("user name exist"));
+      if (userData) return reject(new Error("user name exists"));
 
       db.query(`INSERT INTO users(user_name, password) VALUES($1,$2)`, [
         username,
